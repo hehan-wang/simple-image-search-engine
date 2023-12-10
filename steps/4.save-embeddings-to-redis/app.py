@@ -6,7 +6,7 @@ import time
 import redis
 
 # 连接 Redis 数据库，地址换成你自己的 Redis 地址
-client = redis.Redis(host="redis-server", port=6379, decode_responses=True)
+client = redis.Redis(host="localhost", port=6379, decode_responses=True)
 res = client.ping()
 print("redis connected:", res)
 
@@ -14,7 +14,7 @@ model_name_or_local_path = "openai/clip-vit-base-patch16"
 model = CLIPModel.from_pretrained(model_name_or_local_path)
 processor = CLIPProcessor.from_pretrained(model_name_or_local_path)
 
-png_file = "ball-8576.png"
+png_file = "truman-170.png"
 
 start = time.time()
 image = Image.open(png_file)

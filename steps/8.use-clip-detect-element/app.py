@@ -12,12 +12,12 @@ processor = CLIPProcessor.from_pretrained(model_name_or_local_path)
 # 记录处理开始时间
 start = time.time()
 # 读取待处理图片
-image = Image.open("ball-8576.png")
+image = Image.open("truman-170.png")
 # 处理图片数量，这里每次只处理一张图片
 batch_size = 1
 
 # 要检测是否在图片中出现的内容
-text = ['dog', 'cat', 'night', 'astronaut']
+text = ['dog', 'cat', 'night', 'astronaut','man']
 
 with torch.no_grad():
     # 将图片使用模型加载，转换为 PyTorch 的 Tensor 数据类型

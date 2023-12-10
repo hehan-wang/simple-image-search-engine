@@ -11,9 +11,9 @@ processor = CLIPProcessor.from_pretrained(model_name_or_local_path)
 # 处理文本需要引入
 tokenizer = CLIPTokenizer.from_pretrained(model_name_or_local_path)
 
-vector_indexes_name = "idx:ball_indexes"
+vector_indexes_name = "idx:truman_indexes"
 
-client = redis.Redis(host="redis-server", port=6379, decode_responses=True)
+client = redis.Redis(host="localhost", port=6379, decode_responses=True)
 res = client.ping()
 print("redis connected:", res)
 
@@ -29,7 +29,7 @@ def get_text_embedding(text):
 
 with torch.no_grad():
     # 获取文本的 embeddings
-    text_embeddings = get_text_embedding('astronaut')
+    text_embeddings = get_text_embedding('man')
 
 query_vector = text_embeddings
 query = (

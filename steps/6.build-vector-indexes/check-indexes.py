@@ -1,11 +1,11 @@
 import redis
 
 # 连接 Redis 数据库，地址换成你自己的 Redis 地址
-client = redis.Redis(host="redis-server", port=6379, decode_responses=True)
+client = redis.Redis(host="localhost", port=6379, decode_responses=True)
 res = client.ping()
 print("redis connected:", res)
 
-vector_indexes_name = "idx:ball_indexes"
+vector_indexes_name = "idx:truman_indexes"
 
 # 从 Redis 数据库中读取索引状态
 info = client.ft(vector_indexes_name).info()

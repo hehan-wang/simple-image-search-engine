@@ -1,6 +1,7 @@
 import os
 
-image_directory = "images"
+# 改成你的图片路径
+image_directory = "/Users/david/Downloads/turman"
 
 # 使用列表推导式获取目录中所有的 PNG 图片名称
 png_files = [filename for filename in os.listdir(image_directory) if filename.endswith(".png")]

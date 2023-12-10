@@ -13,7 +13,7 @@ processor = CLIPProcessor.from_pretrained(model_name_or_local_path)
 # 记录处理开始时间
 start = time.time()
 # 读取待处理图片
-image = Image.open("ball-8576.png")
+image = Image.open("truman-170.png")
 # 处理图片数量，这里每次只处理一张图片
 batch_size = 1
 

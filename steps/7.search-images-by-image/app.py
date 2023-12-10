@@ -10,14 +10,14 @@ model_name_or_local_path = "openai/clip-vit-base-patch16"
 model = CLIPModel.from_pretrained(model_name_or_local_path)
 processor = CLIPProcessor.from_pretrained(model_name_or_local_path)
 
-vector_indexes_name = "idx:ball_indexes"
+vector_indexes_name = "idx:truman_indexes"
 
-client = redis.Redis(host="redis-server", port=6379, decode_responses=True)
+client = redis.Redis(host="localhost", port=6379, decode_responses=True)
 res = client.ping()
 print("redis connected:", res)
 
 start = time.time()
-image = Image.open("ball-8576.png")
+image = Image.open("truman-173.png")
 batch_size = 1
 
 with torch.no_grad():
