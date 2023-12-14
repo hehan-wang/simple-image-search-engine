@@ -15,7 +15,9 @@ model_name_or_local_path = "openai/clip-vit-base-patch16"
 model = CLIPModel.from_pretrained(model_name_or_local_path)
 processor = CLIPProcessor.from_pretrained(model_name_or_local_path)
 
-image_directory = "images"
+# 换成你的图片目录
+image_directory = "/Users/david/Downloads/turman"
+
 png_files = [filename for filename in os.listdir(image_directory) if filename.endswith(".png")]
 sorted_png_files = sorted(png_files, key=lambda x: int(x.split('-')[-1].split('.')[0]))
 

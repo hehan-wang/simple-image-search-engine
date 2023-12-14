@@ -26,10 +26,10 @@ with torch.no_grad():
     embeddings = image_features.numpy().astype(np.float32).tobytes()
     print('image_features:', embeddings)
 
-# 构建请求命令，查找和我们提供图片最相近的 30 张图片
+# 构建请求命令，查找和我们提供图片最相近的 5 张图片
 query_vector = embeddings
 query = (
-    Query("(*)=>[KNN 30 @vector $query_vector AS vector_score]")
+    Query("(*)=>[KNN 5 @vector $query_vector AS vector_score]")
     .sort_by("vector_score")
     .return_fields("$")
     .dialect(2)

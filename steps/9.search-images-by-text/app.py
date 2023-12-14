@@ -29,11 +29,12 @@ def get_text_embedding(text):
 
 with torch.no_grad():
     # 获取文本的 embeddings
-    text_embeddings = get_text_embedding('man')
+    text_embeddings = get_text_embedding('Say hello')
+    # text_embeddings = get_text_embedding('smiling man')
 
 query_vector = text_embeddings
 query = (
-    Query("(*)=>[KNN 30 @vector $query_vector AS vector_score]")
+    Query("(*)=>[KNN 5 @vector $query_vector AS vector_score]")
     .sort_by("vector_score")
     .return_fields("$")
     .dialect(2)

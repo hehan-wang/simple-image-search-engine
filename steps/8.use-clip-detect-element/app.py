@@ -17,7 +17,8 @@ image = Image.open("truman-170.png")
 batch_size = 1
 
 # 要检测是否在图片中出现的内容
-text = ['dog', 'cat', 'night', 'astronaut','man']
+text = ['dog', 'cat', 'night', 'astronaut',
+        'man', 'smiling', 'wave', 'smiling man wave', ]
 
 with torch.no_grad():
     # 将图片使用模型加载，转换为 PyTorch 的 Tensor 数据类型
@@ -29,7 +30,7 @@ with torch.no_grad():
     probs = outputs.logits_per_image.softmax(dim=1)
     end = time.time()
     # 记录处理结束时间
-    print('%s Seconds'%(end-start))
+    print('%s Seconds' % (end - start))
     # 打印所有的概率分布
     for i in range(len(text)):
-        print(text[i],":",probs[0][i])
+        print(text[i], ":", probs[0][i])

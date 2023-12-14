@@ -7,3 +7,4 @@ print("redis connected:", res)
 
 res = client.json().get("truman-1234.png")
 print(res)
+print(len(res))
